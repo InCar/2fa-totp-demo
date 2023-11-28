@@ -1,0 +1,9 @@
+pluginManagement {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+}
+
+rootProject.name = "2fa-totp-demo"
+
+//include "2fa-totp-base"

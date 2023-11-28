@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA TOTP Demo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            max-width: 400px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: green;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+            padding: 20px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">&emsp;&emsp;</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">2FA TOTP Demo</h3>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/home/login/step05(state=ok)}" method="post">
+                    <div class="mb-3">
+                        <label for="code" class="form-label">验证码</label>
+                        <input type="password" class="form-control" id="code" placeholder="请输入验证码">
+                    </div>
+                    <button type="submit" class="btn btn-block">下一步</button>
+                    <a class="btn btn-block" th:href="@{/home/login/step01(state=ok,username=${username})}" style="background-color: red;">绑定TOTP</a>
+                    <div class="mb-3">
+                        <br>
+                        <strong>== Debug ==</strong>
+                        <ol>
+                            <li>Username: <i th:text="${username}"></i></li>
+                            <li>Secret: <i th:text="${secret}"></i></li>
+                            <li>Code: <i th:text="${code}"></i></li>
+                        </ol>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
