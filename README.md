@@ -111,4 +111,8 @@ public class TotpServerTests {
         log.info("code: {}", codeGenerator.generate(secret, counter));
     }
 }
-``
+```
+
+## Web Browser
+
+&emsp;&emsp;*[http://localhost:8080/home/index](http://localhost:8080/home/index)*
